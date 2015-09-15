@@ -126,4 +126,16 @@
         </plugins>
     </build>
 
+    <developers>
+        <developer>
+            <id>water</id>
+            <name>daikaixian</name>
+            <email>waterdkx@163.com</email>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
 </project>
