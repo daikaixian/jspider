@@ -88,10 +88,16 @@ public class JSpider implements Job{
         System.out.println(page4.asXml());
         final HtmlTable table = page4.getHtmlElementById("pusListTab");
         //循环爬取并发送邮件,暂时未做去重操作
+
+        String lastPus = "";
+        String lastVersion = "";
         for(int i = 1;i <table.getRowCount();i++){ //从1开始,跳过表头
             HtmlTableRow row = table.getRow(i);
             System.out.println("Found row");
             if(row.getCells().size() > 3){
+                if(row.getCell(2).asText().equals(lastPus)&&row.getCell(3).asText().equals(lastVersion)){
+                    break;
+                }
                 HtmlAnchor href = (HtmlAnchor) row.getCell(3).getElementsByTagName("a").get(0);
                 HtmlPage pageX = href.click();
                 //获取下载超链接
@@ -108,7 +114,9 @@ public class JSpider implements Job{
             }
 
         }
-
+        lastPus = table.getRow(1).getCell(2).asText();  //去重
+        lastVersion = table.getRow(1).getCell(3).asText();
+        System.out.println("程序执行完毕");
 //		//加载iframe
 //		HtmlPage frame=(HtmlPage)page2.getFrameByName("zhuti").getEnclosedPage();
     }
