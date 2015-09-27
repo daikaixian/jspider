@@ -7,6 +7,7 @@ import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.*;
 import org.daikaixian.jspider.mailsender.MailSender;
 import org.quartz.Job;
+import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
@@ -14,12 +15,18 @@ import java.io.*;
 import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by kaishui on 15-8-30.
  */
 public class JSpider implements Job{
+
+    public static String USER_NAME = "mensuo0000";
+    public static String PSWD = "Aa123456";
+    public static String TARGET_EMAIL= "";
+
     //文件存储路径
     private static String FILE_PATH = "/home/kaishui/Documents/";
     //登陆页面
@@ -37,6 +44,7 @@ public class JSpider implements Job{
     SimpleDateFormat dateFormatGmt = new SimpleDateFormat("yyyy-MM-dd aHH:mm:ss:SSS");
     //邮件发送工具
     MailSender mailSender = new MailSender();
+
 
     public JSpider(){
 
@@ -60,9 +68,9 @@ public class JSpider implements Job{
         //获取登录表单的相关元素
         final HtmlForm form = page.getFormByName("formname");
         final HtmlTextInput unam = form.getInputByName("loginId");
-        unam.setValueAttribute("mensuo0000");
+        unam.setValueAttribute(USER_NAME);
         final HtmlPasswordInput psd = form.getInputByName("pwd");
-        psd.setValueAttribute("Aa123456");
+        psd.setValueAttribute(PSWD);
         final List<?> imgs = page.getElementsByTagName("img");
         System.out.println(imgs.size());
         //登录按钮是第14张个图片
@@ -95,9 +103,9 @@ public class JSpider implements Job{
             HtmlTableRow row = table.getRow(i);
             System.out.println("Found row");
             if(row.getCells().size() > 3){
-                if(row.getCell(2).asText().equals(lastPus)&&row.getCell(3).asText().equals(lastVersion)){
-                    break;
-                }
+//                if(row.getCell(2).asText().equals(lastPus)&&row.getCell(3).asText().equals(lastVersion)){
+//                    break;
+//                }
                 HtmlAnchor href = (HtmlAnchor) row.getCell(3).getElementsByTagName("a").get(0);
                 HtmlPage pageX = href.click();
                 //获取下载超链接
@@ -106,7 +114,7 @@ public class JSpider implements Job{
                 File file = ouputDocFile(anchorAttachment,fileName);
                 file.getName();
                 // 设置发件人地址、收件人地址和邮件标题
-                mailSender.setAddress("waterdkx@163.com", "935961250@qq.com", "一个带附件的JavaMail邮件");
+                mailSender.setAddress("waterdkx@163.com", TARGET_EMAIL, "一个带附件的JavaMail邮件");
                 // 设置要发送附件的位置和标题
                 mailSender.setAffix(FILE_PATH + fileName, file.getName());
                 // 设置smtp服务器以及邮箱的帐号
@@ -146,6 +154,13 @@ public class JSpider implements Job{
     }
 
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
+        JobDataMap jobDataMap = jobExecutionContext.getMergedJobDataMap();
+        USER_NAME = jobDataMap.getString("USER_NAME");
+        PSWD = jobDataMap.getString("PSWD");
+        TARGET_EMAIL = jobDataMap.getString("TARGET_EMAIL");
+        System.out.println("*************************"+USER_NAME+" ,"+PSWD+ " ,"+TARGET_EMAIL);
+//        TARGET_EMAIL = String.valueOf(jobDataMap.get("TARGET_EMAIL"));
+
         System.out.println("fetch");
         try {
             fetchDatda();

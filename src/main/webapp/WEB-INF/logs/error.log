@@ -1,86 +1,54 @@
-2015-09-25 13:23:13 [ main:1102 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 13:40:28 [ main:1186 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 15:48:28 [ main:930 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 15:56:00 [ main:2696 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 16:00:10 [ main:1343 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 16:03:10 [ Scanner-0:999 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 16:03:39 [ Scanner-0:1072 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 16:04:03 [ Scanner-0:2105 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 16:04:10 [ Scanner-0:2007 ] - [ ERROR ] Context initialization failed
-org.springframework.beans.factory.BeanDefinitionStoreException: Unexpected exception parsing XML document from class path resource [conf/spring.xml]; nested exception is java.lang.OutOfMemoryError: PermGen space
-	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:412)
-	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:334)
-	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)
-	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:174)
-	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:209)
-	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:180)
-	at org.springframework.web.context.support.XmlWebApplicationContext.loadBeanDefinitions(XmlWebApplicationContext.java:125)
-	at org.springframework.web.context.support.XmlWebApplicationContext.loadBeanDefinitions(XmlWebApplicationContext.java:94)
-	at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:130)
-	at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:537)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:451)
-	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:389)
-	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:294)
-	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:112)
-	at org.eclipse.jetty.server.handler.ContextHandler.callContextInitialized(ContextHandler.java:782)
-	at org.eclipse.jetty.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:424)
-	at org.eclipse.jetty.server.handler.ContextHandler.startContext(ContextHandler.java:774)
-	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:249)
-	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1242)
-	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:717)
-	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:494)
-	at org.mortbay.jetty.plugin.JettyWebAppContext.doStart(JettyWebAppContext.java:298)
-	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
-	at org.mortbay.jetty.plugin.JettyRunMojo.restartWebApp(JettyRunMojo.java:435)
-	at org.mortbay.jetty.plugin.JettyRunMojo$1.filesChanged(JettyRunMojo.java:394)
-	at org.eclipse.jetty.util.Scanner.reportBulkChanges(Scanner.java:691)
-	at org.eclipse.jetty.util.Scanner.reportDifferences(Scanner.java:551)
-	at org.eclipse.jetty.util.Scanner.scan(Scanner.java:403)
-	at org.eclipse.jetty.util.Scanner$1.run(Scanner.java:353)
-	at java.util.TimerThread.mainLoop(Timer.java:555)
-	at java.util.TimerThread.run(Timer.java:505)
-Caused by: java.lang.OutOfMemoryError: PermGen space
-	at java.lang.ClassLoader.defineClass1(Native Method)
-	at java.lang.ClassLoader.defineClass(ClassLoader.java:800)
-	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
-	at java.net.URLClassLoader.defineClass(URLClassLoader.java:449)
-	at java.net.URLClassLoader.access$100(URLClassLoader.java:71)
-	at java.net.URLClassLoader$1.run(URLClassLoader.java:361)
-	at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.net.URLClassLoader.findClass(URLClassLoader.java:354)
-	at org.eclipse.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:421)
-	at org.eclipse.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:383)
-	at org.apache.xerces.impl.xs.XMLSchemaLoader.<init>(Unknown Source)
-	at org.apache.xerces.impl.xs.XMLSchemaLoader.<init>(Unknown Source)
-	at org.apache.xerces.impl.xs.XMLSchemaValidator.<init>(Unknown Source)
-	at org.apache.xerces.parsers.XML11Configuration.configurePipeline(Unknown Source)
-	at org.apache.xerces.parsers.XIncludeAwareParserConfiguration.configurePipeline(Unknown Source)
-	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
-	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
-	at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)
-	at org.apache.xerces.parsers.DOMParser.parse(Unknown Source)
-	at org.apache.xerces.jaxp.DocumentBuilderImpl.parse(Unknown Source)
-	at org.springframework.beans.factory.xml.DefaultDocumentLoader.loadDocument(DefaultDocumentLoader.java:75)
-	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:388)
-	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:334)
-	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)
-	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:174)
-	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:209)
-	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:180)
-	at org.springframework.web.context.support.XmlWebApplicationContext.loadBeanDefinitions(XmlWebApplicationContext.java:125)
-	at org.springframework.web.context.support.XmlWebApplicationContext.loadBeanDefinitions(XmlWebApplicationContext.java:94)
-	at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:130)
-	at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:537)
-2015-09-25 16:04:19 [ main:779 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 16:14:05 [ main:930 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 16:15:57 [ main:1222 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 16:17:53 [ main:1252 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 16:24:48 [ main:835 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 16:32:53 [ main:638 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 16:38:04 [ main:750 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 16:39:25 [ main:749 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 17:13:29 [ main:616 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 17:15:36 [ main:624 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 17:18:18 [ main:738 ] - [ ERROR ] maxIdle is deprecated
-2015-09-25 17:24:22 [ main:809 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 11:33:14 [ main:695 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 11:33:24 [ main:951 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 11:34:49 [ main:1348 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 13:39:25 [ main:1379 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 13:50:55 [ main:1157 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 14:02:21 [ main:1275 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 14:08:30 [ main:827 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 14:09:18 [ main:1289 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 14:25:46 [ main:1180 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 15:08:04 [ main:763 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 15:08:40 [ main:1140 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 15:10:33 [ main:742 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 16:08:15 [ main:1090 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 16:09:05 [ main:808 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 16:25:56 [ main:910 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 16:27:14 [ main:1192 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 16:28:16 [ DefaultQuartzScheduler_Worker-1:63383 ] - [ ERROR ] Job jgroup1.job1 threw an unhandled Exception: 
+java.lang.ClassCastException: com.gargoylesoftware.htmlunit.TextPage cannot be cast to com.gargoylesoftware.htmlunit.html.HtmlPage
+	at org.daikaixian.jspider.spider.JSpider.fetchDatda(JSpider.java:95)
+	at org.daikaixian.jspider.spider.JSpider.execute(JSpider.java:166)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2015-09-27 16:28:16 [ DefaultQuartzScheduler_Worker-1:63385 ] - [ ERROR ] Job (jgroup1.job1 threw an exception.
+org.quartz.SchedulerException: Job threw an unhandled exception. [See nested exception: java.lang.ClassCastException: com.gargoylesoftware.htmlunit.TextPage cannot be cast to com.gargoylesoftware.htmlunit.html.HtmlPage]
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: java.lang.ClassCastException: com.gargoylesoftware.htmlunit.TextPage cannot be cast to com.gargoylesoftware.htmlunit.html.HtmlPage
+	at org.daikaixian.jspider.spider.JSpider.fetchDatda(JSpider.java:95)
+	at org.daikaixian.jspider.spider.JSpider.execute(JSpider.java:166)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	... 1 more
+2015-09-27 16:28:43 [ main:1433 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 16:31:18 [ main:722 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 16:31:46 [ main:1502 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 16:35:18 [ main:714 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 17:03:08 [ main:1210 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 17:04:18 [ DefaultQuartzScheduler_Worker-1:71486 ] - [ ERROR ] Job jgroup1.job1 threw an unhandled Exception: 
+java.lang.ClassCastException: com.gargoylesoftware.htmlunit.TextPage cannot be cast to com.gargoylesoftware.htmlunit.html.HtmlPage
+	at org.daikaixian.jspider.spider.JSpider.fetchDatda(JSpider.java:95)
+	at org.daikaixian.jspider.spider.JSpider.execute(JSpider.java:166)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2015-09-27 17:04:18 [ DefaultQuartzScheduler_Worker-1:71488 ] - [ ERROR ] Job (jgroup1.job1 threw an exception.
+org.quartz.SchedulerException: Job threw an unhandled exception. [See nested exception: java.lang.ClassCastException: com.gargoylesoftware.htmlunit.TextPage cannot be cast to com.gargoylesoftware.htmlunit.html.HtmlPage]
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: java.lang.ClassCastException: com.gargoylesoftware.htmlunit.TextPage cannot be cast to com.gargoylesoftware.htmlunit.html.HtmlPage
+	at org.daikaixian.jspider.spider.JSpider.fetchDatda(JSpider.java:95)
+	at org.daikaixian.jspider.spider.JSpider.execute(JSpider.java:166)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	... 1 more
+2015-09-27 17:07:33 [ main:794 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 17:09:57 [ main:998 ] - [ ERROR ] maxIdle is deprecated
+2015-09-27 17:14:33 [ main:1012 ] - [ ERROR ] maxIdle is deprecated
