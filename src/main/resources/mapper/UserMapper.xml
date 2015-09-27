@@ -6,12 +6,16 @@
 
     <insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
         insert into t_user(
-        state,
-        nickname)
+        username,
+        pswd,
+        last_pus,
+        last_version)
         values
         (
-        #{state},
-        #{nickname}
+        #{username},
+        #{pswd},
+        #{lastPus},
+        #{lastVersion}
         )
     </insert>
 

@@ -25,8 +25,10 @@ public class UserServiceTest {
     public void testInsertUser() throws Exception {
 
         User user = new User();
-        user.setNickname("你好");
-        user.setState(2);
+        user.setUsername("mensuo0000");
+        user.setPswd("Aa123456");
+        user.setLastPus("never");
+        user.setLastVersion("never");
         userService.insertUser(user);
         System.out.println(user.getId());
     }

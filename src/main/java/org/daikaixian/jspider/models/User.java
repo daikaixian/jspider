@@ -6,8 +6,14 @@ package org.daikaixian.jspider.models;
 public class User {
 
     private int id;
-    private int state;
-    private String nickname;
+
+    private String username;
+
+    private String pswd;
+
+    private String lastPus;
+
+    private String lastVersion;
 
     public int getId() {
         return id;
@@ -17,19 +23,35 @@ public class User {
         this.id = id;
     }
 
-    public int getState() {
-        return state;
+    public String getUsername() {
+        return username;
     }
 
-    public void setState(int state) {
-        this.state = state;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getPswd() {
+        return pswd;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setPswd(String pswd) {
+        this.pswd = pswd;
+    }
+
+    public String getLastPus() {
+        return lastPus;
+    }
+
+    public void setLastPus(String lastPus) {
+        this.lastPus = lastPus;
+    }
+
+    public String getLastVersion() {
+        return lastVersion;
+    }
+
+    public void setLastVersion(String lastVersion) {
+        this.lastVersion = lastVersion;
     }
 }
