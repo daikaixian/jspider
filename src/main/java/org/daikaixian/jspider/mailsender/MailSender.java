@@ -4,10 +4,7 @@ import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
 import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+import javax.mail.internet.*;
 import java.util.Properties;
 
 /**
@@ -67,14 +64,14 @@ public class MailSender {
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(
                     to));
             // 加载标题
-            message.setSubject(subject);
+            message.setSubject(MimeUtility.encodeText(subject,"UTF-8","B"));
 
             // 向multipart对象中添加邮件的各个部分内容，包括文本内容和附件
             Multipart multipart = new MimeMultipart();
 
             // 设置邮件的文本内容
             BodyPart contentPart = new MimeBodyPart();
-            contentPart.setText("邮件的具体内容在此");
+            contentPart.setText("You have a new Pus to deal!");
             multipart.addBodyPart(contentPart);
             // 添加附件
             BodyPart messageBodyPart = new MimeBodyPart();
@@ -84,8 +81,9 @@ public class MailSender {
             // 添加附件的标题
             // 这里很重要，通过下面的Base64编码的转换可以保证你的中文附件标题名在发送时不会变成乱码
             sun.misc.BASE64Encoder enc = new sun.misc.BASE64Encoder();
-            messageBodyPart.setFileName("=?UTF-8?B?"
-                    + enc.encode(affixName.getBytes()) + "?=");
+//            messageBodyPart.setFileName("=?UTF-8?B?"
+//                    + enc.encode(affixName.getBytes()) + "?=");
+            messageBodyPart.setFileName(MimeUtility.encodeText(affixName,"UTF-8","B"));
             multipart.addBodyPart(messageBodyPart);
 
             // 将multipart对象放到message中
