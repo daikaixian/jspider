@@ -29,6 +29,8 @@
         <br>
         <br>
     <input type="button" onclick = "execute()" value="执行"/>&nbsp;&nbsp;<input type = "button" onclick="stop()" value="停止"/>
+        <br><br>
+        <label id="label" style="color: red;"></label>
     </form>
     <br>
 
@@ -81,11 +83,13 @@
         })
 
         alert("已启动，请稍后查收邮箱，不要重复点击“执行”！！！");
+        $("#label").html("任务处于 运行 状态");
     }
 
     function stop(){
         $.get("stop");
         alert("已关闭任务，可重新点击“执行”")
+        $("#label").html("任务处于 停止 状态");
     }
 
 </script>
