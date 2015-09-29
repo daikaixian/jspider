@@ -6,6 +6,8 @@ import org.lee.stumanage.models.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -35,6 +37,30 @@ public class UserServiceTest {
         userService.insertUser(user);
         System.out.println(user.getId());
 
+
+
+    }
+
+    @Test
+    public void testDeleteUser() throws Exception{
+        userService.deleteUserById(2);
+
+    }
+
+    @Test
+    public void testUpdateUser() throws Exception{
+        User user = new User();
+        user.setId(1);
+        user.setName("sb");
+        userService.updateUser(user);
+
+    }
+
+    @Test
+    public void testFindUserByConditions(){
+        List<User> userList = userService.findUserByConditions(null,null,1,null,0,0,0);
+        System.out.println(userList.size());
+        System.out.println(userList.get(0).getName());
 
 
     }

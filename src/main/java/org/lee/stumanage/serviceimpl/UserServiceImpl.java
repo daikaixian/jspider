@@ -6,6 +6,9 @@ import org.lee.stumanage.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.List;
+
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -15,5 +18,40 @@ public class UserServiceImpl implements UserService{
     @Override
     public int insertUser(User user) {
         return userDAO.insertUser(user);
+    }
+
+    @Override
+    public int updateUser(User user) {
+        return userDAO.updateUser(user);
+    }
+
+    @Override
+    public List <User> findUserByConditions(String number, String pswd, int role, String hometown, int grade, int orderby, int id) {
+
+
+        HashMap conditionMap = new HashMap();
+        conditionMap.put("number", number);
+        conditionMap.put("pswd", pswd);
+        conditionMap.put("role", role);
+        conditionMap.put("hometown", hometown);
+        if(grade == 0){
+            conditionMap.put("grade", null);
+        }else {
+            conditionMap.put("grade", grade);
+        }
+
+        conditionMap.put("orderby", orderby);
+        if(id == 0) {
+            conditionMap.put("id", null);
+        } else{
+            conditionMap.put("id", id);
+        }
+
+        return userDAO.findUserByConditions(conditionMap);
+    }
+
+    @Override
+    public int deleteUserById(int id) {
+        return userDAO.deleteUserById(id);
     }
 }

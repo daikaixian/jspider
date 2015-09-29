@@ -1,7 +1,10 @@
 package org.lee.stumanage.controller;
 
-/**
- * Created by lee on 15-9-28.
- */
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+
 public class UserController {
+
 }
