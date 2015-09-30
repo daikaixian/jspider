@@ -32,15 +32,21 @@ public class UserServiceImpl implements UserService{
         HashMap conditionMap = new HashMap();
         conditionMap.put("number", number);
         conditionMap.put("pswd", pswd);
-        conditionMap.put("role", role);
         conditionMap.put("hometown", hometown);
+        conditionMap.put("orderby", orderby);
+
+        if(role == 2){
+            conditionMap.put("role", null);
+        }else {
+            conditionMap.put("role", role);
+        }
+
         if(grade == 0){
             conditionMap.put("grade", null);
         }else {
             conditionMap.put("grade", grade);
         }
 
-        conditionMap.put("orderby", orderby);
         if(id == 0) {
             conditionMap.put("id", null);
         } else{
