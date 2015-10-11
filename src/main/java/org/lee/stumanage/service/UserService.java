@@ -11,7 +11,7 @@ public interface UserService {
 
     public int updateUser(User user);
 
-    public List<User> findUserByConditions(String number, String pswd, int role, String hometown, int grade, int orderby, int id);
+    public List<User> findUserByConditions(String number, String pswd, int role, String hometown, int grade, int orderby, int id, String name);
 
     public int deleteUserById(int id);
 }

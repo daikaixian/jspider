@@ -19,8 +19,8 @@ public class User {
 
     /**
      *
-     * 1 : teacher
-     * 0 : student
+     * 0 : teacher
+     * 1 : student
      *
      */
     private int role ;

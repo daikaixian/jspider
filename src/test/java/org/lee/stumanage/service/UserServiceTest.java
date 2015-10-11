@@ -58,7 +58,7 @@ public class UserServiceTest {
 
     @Test
     public void testFindUserByConditions(){
-        List<User> userList = userService.findUserByConditions(null,null,1,null,0,0,0);
+        List<User> userList = userService.findUserByConditions(null,null,1,null,0,0,0, null);
         System.out.println(userList.size());
         System.out.println(userList.get(0).getName());
 

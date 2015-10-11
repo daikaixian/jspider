@@ -1,5 +1,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html>
 <head>
     <title>学生管理系统</title>
@@ -69,8 +71,8 @@
   </table>
   <div align="center">
 
-      <form action="">
-      <input type="text" placeholder="请输入姓名">  <button class="btn btn-default" type="button">查询</button>
+      <form action="/querybyname/" method="get">
+      <input type="text" placeholder="请输入姓名" name="name">  <button class="btn btn-default" type="submit">查询</button>
     </form>
   </div>
 </div>

@@ -56,9 +56,11 @@
         <where>
             <if test="number != null">u_number = #{number}</if>
             <if test="password != null">and password = #{password}</if>
+            <if test="grade != null">and grade > #{grade}</if>
             <if test="role != null">and role = #{role}</if>
             <if test="hometown != null">and hometown = #{hometown}</if>
             <if test="id != null">and id = #{id}</if>
+            <if test="name != null">and u_name = #{name}</if>
         </where>
         order by grade
 

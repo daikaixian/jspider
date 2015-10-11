@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List <User> findUserByConditions(String number, String pswd, int role, String hometown, int grade, int orderby, int id) {
+    public List <User> findUserByConditions(String number, String pswd, int role, String hometown, int grade, int orderby, int id, String name) {
 
 
         HashMap conditionMap = new HashMap();
@@ -34,6 +34,7 @@ public class UserServiceImpl implements UserService{
         conditionMap.put("pswd", pswd);
         conditionMap.put("hometown", hometown);
         conditionMap.put("orderby", orderby);
+        conditionMap.put("name", name);
 
         if(role == 2){
             conditionMap.put("role", null);
