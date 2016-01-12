@@ -111,7 +111,7 @@ public class MailSender {
         for (int i = 1; i <= 10; i++) {
             cn.setAffix("/home/kaishui/Documents/file_"+i+".doc", "已阅pus单附件_"+i+".doc");
             // 设置smtp服务器以及邮箱的帐号和密码
-            cn.send("smtp.163.com", "waterdkx", "yijiushuige");
+            cn.send("smtp.163.com", "waterdkx", "163-email-password");
         }
     }
 }

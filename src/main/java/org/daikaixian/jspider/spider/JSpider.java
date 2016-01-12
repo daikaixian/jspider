@@ -118,7 +118,7 @@ public class JSpider implements Job{
                 // 设置要发送附件的位置和标题
                 mailSender.setAffix(FILE_PATH + fileName, file.getName());
                 // 设置smtp服务器以及邮箱的帐号
-                mailSender.send("smtp.163.com", "waterdkx", "yijiushuige");
+                mailSender.send("smtp.163.com", "waterdkx", "163-email-password");
             }
 
         }
